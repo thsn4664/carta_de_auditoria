@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cf165d5b-7a60-4344-bfcd-c7f508a1a082" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../cartaauditoria_nova.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../cartaauditoria_nova.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/beans/AcessoBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/beans/AcessoBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/beans/EstatisticaBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/beans/EstatisticaBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/beans/LoginBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/beans/LoginBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/beans/PedidosBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/beans/PedidosBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AcessoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AcessoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AcessoLogDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AcessoLogDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxDependenciaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxDependenciaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxEnderecoDepDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxEnderecoDepDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxFuncionarioAtacadoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxFuncionarioAtacadoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/CapMciDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/CapMciDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/CapMciGruposDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/CapMciGruposDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ClientesEnderecoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ClientesEnderecoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/EstatisticaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/EstatisticaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/LogPedidosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/LogPedidosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/OutorgadosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/OutorgadosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/PedidosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/PedidosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/PedidosLoteDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/PedidosLoteDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ResultadosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ResultadosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/SwapDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/SwapDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/VwResultadosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/dao/VwResultadosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Atualizacoes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Atualizacoes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Outorgados.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Outorgados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Pedidos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Pedidos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosLote.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosLote.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosLotePK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosLotePK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosPK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosPK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Swap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Swap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/SwapPK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/SwapPK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/VwPedidosPK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/VwPedidosPK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/VwResultadosPK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/VwResultadosPK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/filtros/FiltroSeguranca.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/filtros/FiltroSeguranca.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/ConsultaDB2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/ConsultaDB2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/Sas_libraries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/Sas_libraries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/Uteis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/Uteis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/listener/LoginPhaseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/listener/LoginPhaseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/util/Funcoes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/util/Funcoes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/util/SSOUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/classes/br/com/bb/exxi/cartaauditoria_nova/util/SSOUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/lib/dom4j-1.6.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/cartaauditoria_nova-0.1/WEB-INF/lib/dom4j-1.6.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/AcessoBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/AcessoBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/AuxiliarBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/AuxiliarBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/EstatisticaBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/EstatisticaBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/LoginBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/LoginBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/PedidosBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/beans/PedidosBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AcessoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AcessoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AcessoLogDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AcessoLogDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxDependenciaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxDependenciaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxEnderecoDepDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxEnderecoDepDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxFuncionarioAtacadoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/AuxFuncionarioAtacadoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/CapMciDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/CapMciDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/CapMciGruposDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/CapMciGruposDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ClientesEnderecoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ClientesEnderecoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ConstantesConexao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ConstantesConexao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ConstantesConexao2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ConstantesConexao2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/EstatisticaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/EstatisticaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/LogPedidosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/LogPedidosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/OutorgadosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/OutorgadosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/PedidosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/PedidosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/PedidosLoteDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/PedidosLoteDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ResultadosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/ResultadosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/SwapDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/SwapDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/VwResultadosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/dao/VwResultadosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Atualizacoes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Atualizacoes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Outorgados.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Outorgados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Pedidos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Pedidos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosLote.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosLote.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosLotePK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosLotePK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosPK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/PedidosPK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Swap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/Swap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/SwapPK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/SwapPK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/VwPedidosPK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/VwPedidosPK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/VwResultadosPK.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/entidades/VwResultadosPK.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/filtros/FiltroSeguranca.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/filtros/FiltroSeguranca.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/ConsultaDB2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/ConsultaDB2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/Sas_libraries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/Sas_libraries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/Uteis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/jdbc_base/Uteis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/listener/LoginPhaseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/listener/LoginPhaseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/util/Funcoes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/util/Funcoes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/util/SSOUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/util/SSOUtil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/util/SSOUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/bb/exxi/cartaauditoria_nova/util/SSOUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="28Kj7ZcIEO3APsGzEZ1YZU9UitA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/KitDesenvolvimento/Projetos/CartaAuditoriaWeb/Carta de Auditoria/cartaauditoria_nova"
+  }
+}]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf165d5b-7a60-4344-bfcd-c7f508a1a082" name="Changes" comment="" />
+      <created>1650972008429</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650972008429</updated>
+    </task>
+    <servers />
+  </component>
+</project>

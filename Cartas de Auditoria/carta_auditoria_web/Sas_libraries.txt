@@ -1,0 +1,140 @@
+package br.com.bb.exxi.cartaauditoria_nova.jdbc_base;
+
+import br.com.bb.exxi.cartaauditoria_nova.entidades.Outorgados;
+import com.sas.iom.SAS.ILanguageService;
+import com.sas.iom.SAS.IWorkspace;
+import com.sas.iom.SAS.IWorkspaceHelper;
+import com.sas.iom.SASIOMDefs.GenericError;
+import com.sas.rio.MVAConnection;
+import com.sas.services.connection.*;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Properties;
+
+public class Sas_libraries_old {
+    
+    public void init(){
+    }
+    
+    //	public static void main(String[] args) throws SQLException, IOException, XPathExpressionException {
+	public List<Outorgados> executeQuery(String libname, String sql, Date dtBase) throws SQLException, IOException {
+		
+		//CHAVE E SENHA DO USUÁRIO SAS
+		String user     = "Fxxxxxxx";
+		String password = "xxxxxxxx";
+		
+		//LIBRARY A SER CRIADA
+		//String libname = "LIBNAME DB2MCI DB2 DATABASE=bdb2p04 SCHEMA=DB2MCI AUTHDOMAIN=DB2SDCOM;";
+		
+		//SQL
+//		String sql = Uteis.getSqlResource("/br/com/bb/dired/jdbc_base/SQLs.xml", "sql", "SAS_PRE_CONSULTA_COOBRIGADO");
+//		sql = sql.replace("$where01", cpf_cnpj); //passando parâmetro na execução...
+		System.out.println(sql);
+				
+		//HOST
+		String host = "analitico005"; 
+                //int port = 8591;
+                //String host = "sasanalitico.intranet.bb.com.br";
+		//String host = "sasanalitico.intranet.bb.com.br metaanalitico02.intranet.bb.com.br metaanalitico03.intranet.bb.com.br metaanalitico04.intranet.bb.com.br portalanalitico02.intranet.bb.com.br";
+                //String host = "sasanl08";
+                int port = 8591;
+				
+		MVAConnection jdbcConnection = null;
+		Statement stmt = null;
+		IWorkspace sasWorkspace = null;
+		ResultSet rs = null;
+                List<Outorgados> lc = new ArrayList<Outorgados>();
+                Outorgados c = null;
+                String cpfCnpj = "";
+                
+		try {
+			
+			String classID = Server.CLSID_SAS;
+
+			// Connect to the server and retrieve an IWorkSpace
+			Server server = new BridgeServer(classID, host, port);
+			ConnectionFactoryConfiguration cxfConfig = new ManualConnectionFactoryConfiguration(server);
+			ConnectionFactoryManager cxfManager = new ConnectionFactoryManager();
+			ConnectionFactoryInterface cxf = cxfManager.getFactory(cxfConfig);			
+			ConnectionInterface cx = cxf.getConnection(user, password);
+			org.omg.CORBA.Object obj = cx.getObject();
+			sasWorkspace = IWorkspaceHelper.narrow(obj);
+						
+			// Retrieve the ILanguageService.  This will allow you to submit any SAS code
+			// We will use it to assign a libname
+			ILanguageService sasLanguage = sasWorkspace.LanguageService();
+			sasLanguage.Submit(libname);
+					
+			// Retrieve the SAS log and print it out
+			/*CarriageControlSeqHolder logCarriageControlHldr = new CarriageControlSeqHolder();
+			LineTypeSeqHolder logLineTypeHldr = new LineTypeSeqHolder();
+			StringSeqHolder logHldr = new StringSeqHolder();
+			sasLanguage.FlushLogLines(Integer.MAX_VALUE, logCarriageControlHldr, logLineTypeHldr, logHldr);
+			String[] logLines = logHldr.value;
+			for (int i = 0; i < logLines.length; i++) {
+				System.out.println(logLines[i]);
+			}*/
+					
+			// Create a new jdbc connection using the Iworkspace 
+			Properties jdbcProps = new Properties();
+			jdbcConnection = new MVAConnection(sasWorkspace, jdbcProps);
+			stmt = jdbcConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+			
+			//BUSCA O RESULTSET
+			rs = stmt.executeQuery(sql);
+                        
+                        //if(rs.next()){
+                        while(rs.next()){
+                            c = new Outorgados();
+                            c.setDtBase(dtBase);
+                            c.setCdCli(rs.getInt("cd_cli"));
+                            c.setCdCliOtgdo(rs.getInt("cd_cli_otgdo"));
+                            c.setNmOtgdo(rs.getString("nm_otgdo").trim());
+                            c.setTpPessoa(rs.getInt("tp_pessoa") == 1 ? "PF" : "PJ");
+                            cpfCnpj = "";
+                            if(rs.getInt("tp_pessoa") == 1){
+                                cpfCnpj = "00000000000" + rs.getLong("cpf_cnpj_otgdo");
+                                cpfCnpj = cpfCnpj.substring(cpfCnpj.length()-11);
+                                cpfCnpj = cpfCnpj.substring(0, 3) + "." + cpfCnpj.substring(3, 6) + "." + cpfCnpj.substring(6, 9) + "-" + cpfCnpj.substring(9, 11);
+                            }else{
+                                cpfCnpj = "00000000000000" + rs.getLong("cpf_cnpj_otgdo");
+                                cpfCnpj = cpfCnpj.substring(cpfCnpj.length()-14);
+                                cpfCnpj = cpfCnpj.substring(0, 2) + "." + cpfCnpj.substring(2, 5) + "." + cpfCnpj.substring(5, 8) + "/" + cpfCnpj.substring(8, 12) + "-" + cpfCnpj.substring(12, 14);
+                            }
+                            c.setCpfCnpjOtgdo(cpfCnpj);
+                            c.setSumTipoDoc(rs.getInt("sum_tipo_doc"));
+                            lc.add(c);
+                        }
+                        
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ConnectionFactoryException e) {
+			e.printStackTrace();
+		} catch (GenericError e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (null != stmt) {
+					stmt.close();
+				}
+				if (null != jdbcConnection) {
+					jdbcConnection.close();
+					sasWorkspace.Close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (GenericError e) {
+				e.printStackTrace();
+			}
+		}
+		return lc;
+		
+	}
+	
+}

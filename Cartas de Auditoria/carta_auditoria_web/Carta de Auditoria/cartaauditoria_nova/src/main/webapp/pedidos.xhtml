@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="_layout.xhtml">
+        <ui:define name="corpo">
+            <style>
+                .ui-tabs-panel{
+                    padding: 0px !important;
+                }
+            </style>
+            <!--<h:outputText value="{pedidosBean.autenticacao(loginBean.usuario)}"/>-->
+            <h:outputText value="#{pedidosBean.atualizar()}"/>
+            <h:form>
+                <p:focus context="gridPedido"/>
+                <p:panel header="Digite aqui os dados para geração da carta:" id="gridPedido">
+                    <table>
+                        <tr>
+                            <td style="text-align: right;">
+                                <h:outputText value="MCI:" rendered="#{pedidosBean.chkLote eq 0}"/>
+                                <h:outputText value="Radical CNPJ:" rendered="#{pedidosBean.chkLote eq 1}"/>
+                                <h:outputText value="Grupo:" rendered="#{pedidosBean.chkLote eq 2}"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{pedidosBean.cdCli}" onkeydown="return key(event, this, '999999999', 1);" maxlength="9" required="true" requiredMessage="MCI é obrigatório" rendered="#{pedidosBean.chkLote eq 0}"/>
+                                <p:inputText value="#{pedidosBean.cdCnpj}" onkeydown="return key(event, this, '99999999', 1);" maxlength="8" required="true" requiredMessage="Radical CNPJ é obrigatório" rendered="#{pedidosBean.chkLote eq 1}"/>
+                                <!--<p:selectOneMenu value="#{pedidosBean.cdGrupo}" rendered="#{pedidosBean.chkLote eq 2}">
+                                    <f:selectItems value="#{pedidosBean.grupos}" var="a" itemLabel="#{a.nmGrupo.trim()}" itemValue="#{a.cdGrupo}" />
+                                </p:selectOneMenu>-->
+                                <p:autoComplete id="campoBusca" value="#{pedidosBean.campoBusca}" completeMethod="#{pedidosBean.pesquisar}" minQueryLength="3" size="63" rendered="#{pedidosBean.chkLote eq 2}"/>
+                            </td>
+                            <td>
+                                <p:selectOneRadio value="#{pedidosBean.chkLote}" layout="pageDirection" valueChangeListener="#{pedidosBean.trocaLote}" >
+                                    <f:selectItem itemLabel="Individual" itemValue="0"/>
+                                    <f:selectItem itemLabel="Lote - Radical CNPJ" itemValue="1"/>
+                                    <f:selectItem itemLabel="Lote - Grupo" itemValue="2"/>
+                                    <p:ajax update="gridPedido"/>
+                                </p:selectOneRadio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Data-base:</td>
+                            <td style="text-align: right;">
+                                <h:selectOneMenu value="#{pedidosBean.dtBaseStr}" style="border:0;">
+                                    <f:selectItems value="#{pedidosBean.dtsBase}" var="dt" itemLabel="#{dt.dtForm}" itemValue="#{dt.dtForm}"/>
+                                </h:selectOneMenu>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Gera lista de outorgados:</td>
+                            <td style="text-align: left;">
+                                <p:selectBooleanCheckbox value="#{pedidosBean.geraOutorgados}" />
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Nº da demanda / carta:</td>
+                            <td>
+                                <p:inputText value="#{pedidosBean.cdFlow}" onkeydown="return key(event, this, '999999999', 1);" title="CSA: nº da demanda no Workflow;&#13;Demais dependências: qualquer número"/>
+                            </td>
+                            <td>
+                                <!--<h:outputText value="#{usuario.getCodigoPrefixoDependencia()}"/>-->
+                                <!--<h:outputText value="#{usuario.getPrefixoDiretoria()}"/>-->
+                                
+                                <script>
+                                    var texto = '#{usuario.getAcessos()}';
+                                    /* if feito dessa forma devido por limitacao de compreensao de E comercial*/                                    
+                                    if(texto.includes('C2FDC7F2') ){
+                                        if(texto.includes('85EC1330')){
+                                            //alert('Acessos localizados');
+                                        }else{
+                                            alert('Consulte papeis no ACESSO-21-01-31 funcionalidades C2FDC7F2 e 85EC1330.');
+                                        }
+                                    }else{
+                                        alert('Consulte papeis no ACESSO-21-01-31 funcionalidades C2FDC7F2 e 85EC1330.');
+                                    };
+                                </script>
+                                
+                                <!--INICIO RESTRIÇÃO DE ACESSO 9600 14-03-2025 -->
+                                <ui:fragment rendered="#{usuario.getPrefixoDiretoria() == 9600}">
+                                    <p:commandButton icon="ui-icon-disk" value="Solicita Carta" action="#{pedidosBean.processaSolicitacao()}" ajax="false"/> 
+                                </ui:fragment>
+                                <!--FIM    RESTRIÇÃO DE ACESSO 9600 14-03-2025 -->
+                                
+                            </td>
+                        </tr>
+                    </table>
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                </p:panel>
+            </h:form>
+            <h:form>
+                <p:tabView>
+                    <p:tab title="Pedidos individuais">
+                        <p:dataTable id ="tabelaPedidos" var="p" value="#{pedidosBean.pedidosAProcessar}" paginator="true" paginatorPosition="bottom" rows="10" emptyMessage="Não há pedidos." style="min-height: 400px;">
+                            <f:facet name="header">
+                                <h:outputText value="Pedidos a processar / em processamento / processados (últimos 7 dias)"/>
+                            </f:facet>
+                            <p:column style="text-align: right;" sortBy="#{p.vwPedidosPK.cdCli}">
+                                <f:facet name="header">
+                                    <h:outputText value="MCI"/>
+                                </f:facet>
+                                <h:outputText value="#{p.vwPedidosPK.cdCli}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{p.vwPedidosPK.dtBase}">
+                                <f:facet name="header">
+                                    <h:outputText value="Data-base"/>
+                                </f:facet>
+                                <h:outputText value="#{auxiliarBean.dia(p.vwPedidosPK.dtBase)}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{p.cdWorkflow}" filterBy="#{p.cdWorkflow}">
+                                <f:facet name="header">
+                                    <h:outputText value="Demanda Workflow"/>
+                                </f:facet>
+                                <h:outputText value="#{p.cdWorkflow}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{p.dtPed}">
+                                <f:facet name="header">
+                                    <h:outputText value="Data Pedido"/>
+                                </f:facet>
+                                <h:outputText value="#{auxiliarBean.diaHora(p.dtPed)}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{p.dtEnvio}">
+                                <f:facet name="header">
+                                    <h:outputText value="Data Envio"/>
+                                </f:facet>
+                                <h:outputText value="#{auxiliarBean.diaHora(p.dtEnvio)}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{p.dtReceb}">
+                                <f:facet name="header">
+                                    <h:outputText value="Data Retorno"/>
+                                </f:facet>
+                                <h:outputText value="#{auxiliarBean.diaHora(p.dtReceb)}"/>
+                            </p:column>
+                            <p:column style="text-align: center;">
+                                <f:facet name="header">
+                                    <h:outputText value="Sit."/>
+                                </f:facet>
+                                <p:commandLink actionListener="#{pedidosBean.apagaPedido(p)}" rendered="#{p.cdStatusPed==0}" update="@all">
+                                    <p:graphicImage library="img" name="delete.png" title="Apagar"/>
+                                </p:commandLink>
+                                <p:graphicImage library="img" name="glyphicons_054_clock.png" rendered="#{p.cdStatusPed==1}" title="Em processamento"/>
+                                <p:commandLink actionListener="#{pedidosBean.solicitaCarta(p)}" rendered="#{p.cdStatusPed gt 1}" ajax="false">
+                                    <!--INICIO RESTRIÇÃO DE ACESSO 9600 14-03-2025 -->
+                                    <ui:fragment rendered="#{usuario.getPrefixoDiretoria() == 9600}">                                        
+                                        <p:graphicImage library="img" name="glyphicons_010_envelope.png" title="Gerar Carta"/>
+                                    </ui:fragment>
+                                    <!--FIM    RESTRIÇÃO DE ACESSO 9600 14-03-2025 -->
+                                </p:commandLink>
+                            </p:column>
+                        </p:dataTable>
+                    </p:tab>
+                    <p:tab title="Pedidos em Lote">
+                        <p:dataTable id ="tabelaPedidosLote" var="pl" value="#{pedidosBean.pedidosLoteLista}" paginator="true" paginatorPosition="bottom" rows="10" emptyMessage="Não há pedidos." style="min-height: 400px;">
+                            <f:facet name="header">
+                                <h:outputText value="Pedidos em Lote"/>
+                            </f:facet>
+                            <p:column style="text-align: right; width: 67px;" sortBy="#{pl.strTipoLote}">
+                                <f:facet name="header">
+                                    <h:outputText value="Tipo Lote"/>
+                                </f:facet>
+                                <h:outputText value="#{pl.strTipoLote}"/>
+                            </p:column>
+                            <p:column style="text-align: right; width: 67px;" sortBy="#{pl.strRef}">
+                                <f:facet name="header">
+                                    <h:outputText value="Radical CNPJ / Grupo"/>
+                                </f:facet>
+                                <h:outputText value="#{pl.strRef}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{pl.pedidosLotePK.dtBase}">
+                                <f:facet name="header">
+                                    <h:outputText value="Data-base"/>
+                                </f:facet>
+                                <h:outputText value="#{auxiliarBean.dia(pl.pedidosLotePK.dtBase)}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{pl.cdCarta}" filterBy="#{pl.cdCarta}">
+                                <f:facet name="header">
+                                    <h:outputText value="Demanda Workflow"/>
+                                </f:facet>
+                                <h:outputText value="#{pl.cdCarta}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{pl.dtPed}">
+                                <f:facet name="header">
+                                    <h:outputText value="Data Pedido"/>
+                                </f:facet>
+                                <h:outputText value="#{auxiliarBean.diaHora(pl.dtPed)}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{pl.dtEnvio}">
+                                <f:facet name="header">
+                                    <h:outputText value="Data Envio"/>
+                                </f:facet>
+                                <h:outputText value="#{auxiliarBean.diaHora(pl.dtEnvio)}"/>
+                            </p:column>
+                            <p:column style="text-align: center;" sortBy="#{pl.dtRetorno}">
+                                <f:facet name="header">
+                                    <h:outputText value="Data Retorno"/>
+                                </f:facet>
+                                <h:outputText value="#{auxiliarBean.diaHora(pl.dtRetorno)}"/>
+                            </p:column>
+                            <p:column style="text-align: center;">
+                                <f:facet name="header">
+                                    <h:outputText value="Sit."/>
+                                </f:facet>
+                                <p:commandLink actionListener="#{pedidosBean.apagaPedidoLote(pl)}" rendered="#{pl.cdStatus==0}" update="@all">
+                                    <p:graphicImage library="img" name="delete.png" title="Apagar"/>
+                                </p:commandLink>
+                                <p:graphicImage library="img" name="glyphicons_054_clock.png" rendered="#{pl.cdStatus==1}" title="Em processamento"/>
+                                <p:commandLink actionListener="#{pedidosBean.gerarLote(pl.pedidosLotePK.cdRef, pl.pedidosLotePK.dtBase, pl.pedidosLotePK.cdTipoLote)}" rendered="#{pl.cdStatus gt 1}" ajax="false">
+                                    <p:graphicImage library="img" name="glyphicons_010_envelope.png" title="Gerar Cartas"/>
+                                </p:commandLink>
+                            </p:column>
+                        </p:dataTable>
+                    </p:tab>
+                </p:tabView>
+            </h:form>
+        </ui:define>
+        <ui:define name="rodape">
+            <p:panel>
+                <table style="width: 100%;">
+                    <tr>
+                        <td>
+                            <h:outputText value="Fonte: " styleClass="text" style="font-weight: bold;"/>
+                            <h:outputText value="MCI / ARG / OPR / COP / LSG / SWP / CBR" styleClass="text" />
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="Atualizado em: " styleClass="text" style="font-weight: bold;"/>
+                            <h:outputText value="#{auxiliarBean.diaHora(pedidosBean.recepcao.tsUltExec)}" styleClass="text" />
+                        </td>
+                        <td style="text-align: right;">
+                            <h:outputText value="Próximo envio em: " styleClass="text" style="font-weight: bold;"/>
+                            <h:outputText value="#{auxiliarBean.diaHora(pedidosBean.envio.tsPxExec)}" styleClass="text" /> 
+                        </td>
+                    </tr>
+                </table>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+</html>

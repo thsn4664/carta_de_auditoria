@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="_layout.xhtml">
+        <ui:define name="corpo">
+            <style>
+                table.panelAlert{
+                    border: 1px solid !important;
+                    margin: 5px 5px !important;
+                    padding: 0px !important;
+                    border-radius: 3px !important;
+                    border-color: #FBEED5 !important;
+                    width: 790px;
+                }
+                table.panelAlert tr{
+                    color: #C09853 !important;
+                    background-color: #FCF8E3 !important;
+                    border: none !important;
+                }
+                table.panelAlert td{
+                    border: none !important;
+                    padding: 2px !important;
+                    vertical-align: middle;
+                }
+                table.panelInfo, table.panelInfo2{
+                    border: 1px solid !important;
+                    margin: 5px 5px !important;
+                    padding: 0px !important;
+                    border-radius: 3px !important;
+                    border-color: #BCE8F1 !important;
+                    width: 790px;
+                }
+                table.panelInfo tr, table.panelInfo2 tr{
+                    color: #3A87AD !important;
+                    background-color: #D9EDF7 !important;
+                    border: none !important;
+                }
+                table.panelInfo td{
+                    border: none !important;
+                    padding: 2px !important;
+                    vertical-align: middle;
+                }
+                table.panelInfo2 td{
+                    border: none !important;
+                    padding: 2px !important;
+                    vertical-align: top;
+                }
+            </style>
+            <!--<h:outputText value="{pedidosBean.autenticacao(loginBean.usuario)}"/>-->
+            <h:form>
+                <!--                <p:panelGrid style="border: 1px solid; margin: 5px 5px; padding: 0px; border-radius: 3px; border-color: #FBEED5; background-color: #FCF8E3;"> -->
+                <p:panelGrid styleClass="panelAlert" style="text-align: left; vertical-align: middle;">
+                    <p:row>
+                        <p:column rowspan="2" style="width: 55px;">
+                            <p:graphicImage library="img" name="atencao.png" height="50px"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText style="font-weight: bold; font-size: 1.5em;" value="ALERTA!"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column style="padding-top: 0px; color: black;">
+                            <b>Confirme os poderes do solicitante antes de gerar ou enviar a Carta de Auditoria.</b>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+<!--                <p:panelGrid styleClass="panelInfo" style="text-align: left; vertical-align: middle;">
+                    <p:row>
+                        <p:column rowspan="2" style="width: 55px; vertical-align: top;">
+                            <p:graphicImage library="img" name="new.png" height="50px"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText style="font-weight: bold; font-size: 1.5em;" value="Saldos de Cartão de Crédito"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column style="padding-top: 0px; color: black;">
+                            <h:outputText style="font-weight: bold;" value="Desde 01/10, os saldos de Cartões de Crédito foram corrigidos, após a forma de apuração dos dados ser conferida pela DIMEP e DICRE."/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>-->
+                <!--                <p:panel style="border: 1px solid; margin: 5px 5px; padding: 0px; border-radius: 3px; border-color: #FBEED5; background-color: #FCF8E3;"> -->
+                <!--<p:panelGrid columns="2" styleClass="panelInfo2">
+                    <p:column rowspan="3">-->
+<!--                <p:panelGrid styleClass="panelInfo" style="text-align: left; vertical-align: middle;">
+                    <p:row>
+                        <p:column rowspan="2" style="width: 55px; vertical-align: top;">
+                            <p:graphicImage library="img" name="new.png" height="50px"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText style="font-weight: bold; font-size: 1.5em;" value="Geração de Cartas em Lote"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column style="padding-top: 0px; color: black;">
+                            <h:outputText style="font-weight: bold;" value="A partir de 17/08, a ferramenta pode gerar Cartas de Auditoria para todos os MCIs vinculados a um mesmo radical de CNPJ ou a um Grupo Econômico, em uma data-base, com um único pedido."/><br/>
+                            <h:outputText style="font-weight: bold;" value="Todas as Cartas estarão disponíveis em um único arquivo Excel, com uma planilha para cada MCI."/><br/>
+                            <h:outputText style="font-weight: bold; color: red;" value="ATENÇÃO: quanto mais MCIs o Radical ou o Grupo tiver, mais demorada será a geração do arquivo Excel."/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>-->
+                <!--</p:column>
+                <p:column>
+                <p:panelGrid styleClass="panelInfo" style="text-align: left; vertical-align: middle; width: auto; border: none !important;">
+                    <p:row>
+                        <p:column rowspan="2" style="width: 55px; vertical-align: top;">
+                            <p:graphicImage library="img" name="new.png" height="50px"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText style="font-weight: bold; font-size: 1.5em;" value="Data-base a partir de Jan/2011"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column style="padding-top: 0px; color: black;">
+                            <h:outputText style="font-weight: bold;" value="A partir de 17/07, a ferramenta pode gerar Cartas de Auditoria com datas-base a partir de Jan/2011."/><br/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                <p:panelGrid styleClass="panelInfo" style="text-align: left; vertical-align: middle; width: auto; border: none !important;">
+                    <p:row>
+                        <p:column rowspan="2" style="width: 55px; vertical-align: top;">
+                            <p:graphicImage library="img" name="new.png" height="50px"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText style="font-weight: bold; font-size: 1.5em;" value="AR (Aviso de Recebimento)"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column style="padding-top: 0px; color: black;">
+                            <h:outputText style="font-weight: bold;" value="A partir de 19/06, a ferramenta gera um AR (Aviso de Recebimento) com o endereço do cliente, que pode ser editado."/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                <p:panelGrid styleClass="panelInfo" style="text-align: left; vertical-align: middle; width: auto; border: none !important;">
+                    <p:row>
+                        <p:column rowspan="2" style="width: 55px; vertical-align: top;">
+                            <p:graphicImage library="img" name="new.png" height="50px"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText style="font-weight: bold; font-size: 1.5em;" value="Relação de procuradores"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column style="padding-top: 0px; color: black;">
+                            <h:outputText style="font-weight: bold;" value="A partir de 15/06, a ferramenta pode fornecer a relação dos procuradores e das pessoas autorizadas a solicitar saldo e extrato do cliente, em uma determinada data-base."/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                </p:column>
+            </p:panelGrid>-->
+                <p:panel style="border: 1px solid; margin: 5px 5px; padding: 0px; border-radius: 3px; border-color: #E0EBEB; background-color: #F0F5F5;">
+                    <h:outputText style="font-weight: bold; font-size: 1.5em;" value="Orientações"/>
+                    <p:accordionPanel activeIndex="-1">
+                        <p:tab title="Fonte dos dados">
+                            A relação de produtos e seus valores são obtidos a partir de consultas a base consolidada de operações do sistema OPR (base do ADMIN), com complementação de informações para:<br/>
+                            <ul>
+                                <li>produtos COP/XER - sistema COP</li>
+                                <li>Leasing - sistema LSG</li>
+                                <li>Swap sem caixa e Termo de Moedas - sistema SWP</li>
+                            </ul>
+                            O período passível de pesquisa pela ferramenta é de 5 (cinco) anos, ou seja, a data-base mais antiga é de, no máximo, 5 anos atrás.
+                        </p:tab>
+                        <p:tab title="Produtos da Área Internacional">
+                            Conforme orientação do gestor, as informações para obtenção de saldos para os seguintes produtos (contratados na Rede Externa):<br/>
+                            <ul>
+                                <li>Contas e aplicações (investimentos) no exterior</li>
+                                <li>FORFAIT</li>
+                                <li>Investimento em Bonds</li>
+                            </ul>
+                            devem ser providenciados diretamente com a Rede Externa de Dependências, e prestadas em moeda estrangeira.
+                        </p:tab>
+                        <p:tab title="Operações contratadas na Agência 0760 Tóquio Japão - data-base 31/12">
+                            Saldos de operações contratadas na Agência 0760 Tóquio Japão com data-base 31/12 devem ser obtidas diretamente junto à Rede Externa.
+                        </p:tab>
+                        <p:tab title="Dependências da Rede Externa que não são listadas na ferramenta">
+                            As seguintes dependências da Rede Externa possuem regras locais (do país de origem) de sigilo bancário, e operações nessas dependências não são listadas pela ferramenta Carta de Auditoria:<br/>
+                            <ul>
+                                <li>0686 NOVA IORQUE USA</li>
+                                <li>1007 GR.CAYMAN-ILH.CAYMAN</li>
+                                <li>1215 MIAMI USA</li>
+                                <li>1623 VIENA AUSTRIA</li>
+                                <li>4056 XANGAI CHINA</li>
+                            </ul>
+                            Informações sobre operações nessas dependências devem ser providenciadas diretamente com elas, e prestadas em moeda estrangeira.
+                        </p:tab>
+                        <p:tab title="Bloqueio judicial">
+                            O bloqueio judicial é uma ação promovida pelo Banco mediante a existência de ordem judicial para tal.<br/>
+                            Por não configurar produto, não deve ser informado na Carta de Auditoria.<br/>
+                            Caso o cliente deseje ter uma relação dos bloqueios judiciais sobre seus ativos, devem ser procuradas outras alternativas.
+                        </p:tab>
+                        <p:tab title="Debêntures">
+                            As informações podem ser obtidas junto à DIMEC/carteira TVM ou à DIFIN/GEROF I.<br/>
+                            Há orientação do gestor do grupo comercial TVM de que "<u>os saldos dos produtos encarteirados no grupo comercial TVM não devem ser incluídos nas cartas de circularização"</u>.
+                        </p:tab>
+                        <p:tab title="Títulos Mobiliários Públicos - LFT, NTN, CTN">
+                            Não disponível na base OPR: Consultar DIFIN/GEROF I.
+                        </p:tab>
+                        <p:tab title="Operações amparadas em convênios BB CONVIR ou BB Agro Risco Conveniada">
+                            As operações amparadas em convênios BB CONVIR ou BB Agro Risco Conveniada (IN 715) aparecem na relação de produtos do tomador do empréstimo, e não na relação da empresa conveniada que é interveniente.<br/>
+                            Operações da espécie não são listadas pela ferramenta Carta de Auditoria.<br/>
+                            Caso o cliente deseje ter uma relação das operações cobertas pelo convênio, devem ser procuradas outras alternativas.
+                        </p:tab>
+                        <p:tab title="BB Extrapoupe, BB Aplic Corp SWAP e BB Aplic Corporate SWAP-SELIC">
+                            Os produtos BB EXTRAPOUPE, BB APLIC CORP SWAP e BB APLIC CORPORATE SWAP-SELIC foram extintos e tiveram seus saldos zerados.<br/>
+                            Porém, inconsistências no sistema OPR fazem com que antigos saldos dos produtos permaneçam.<br/>
+                            A ferramenta Carta de Auditoria (que se baseia no sistema OPR) já está programada para ignorar estes produtos.
+                        </p:tab>
+                        <p:tab title="Depósito obrigatório para constituição de S/A">
+                            Os depósitos obrigatórios são acolhidos na ocasião da constituição da S/A, que no momento do depósito não possui CNPJ para informar e assim fica no cadastro do DEB como conta interna.<br/>
+                            A IN 148 prevê que os valores devam ficar no máximo 180 dias nessa conta (enquanto corre o processo de abertura/criação da S/A). Enquanto os valores estiverem na conta de depósito obrigatório eles pertencem a quem depositou, os sócios da futura S/A. No caso de não constituição da empresa, os valores devem ser devolvidos a esses depositantes/subscritores.<br/>
+                            A ferramenta Carta de Auditoria (que se baseia no sistema OPR) não lista tais contas, em consonância com a orientação dos gestores.<br/>
+                            Caso o cliente insista na informação, os gestores orientam abrir consulta ao Apoio Jurídico do Banco.
+                        </p:tab>
+                        <p:tab title="Operações PESA">
+                            O saldo devedor das operações PESA é a soma do saldo de principal, encargos básicos e da projeção de encargos da próxima parcela a vencer.<br/>
+                            O mutuário, ao pactuar a operação, adquire Certificados do Tesouro Nacional (CTN), que serão resgatados ao fim da operação, para reembolso do principal corrigido.<br/>
+                            Porém, a fórmula da atualização dos CTN difere da atualização do saldo da operação. Assim, conforme orientação do gestor do produto, o valor das CTN <b>não</b> corresponde ao saldo devedor da operação.<br/>
+                            Caso o cliente insista, a confirmação dos valores da operação deve ser obtida junto ao gestor do produto (DIRAG).
+                        </p:tab>
+                    </p:accordionPanel>
+                </p:panel>
+                <p:panel style="border: 1px solid; margin: 5px 5px; padding: 0px; border-radius: 3px; border-color: #BCE8F1; background-color: #D9EDF7;">
+                    <h:outputText value="Anexos" style="font-weight: bold; font-size: 1.5em; color: #3A87AD;"/><br/>
+                    <p:commandButton value="Produtos incluídos" ajax="false">
+                        <p:fileDownload value="#{fileBean.file}" />
+                    </p:commandButton>
+                    <p:commandButton value="Produtos em processo de inclusão" ajax="false">
+                        <p:fileDownload value="#{fileBean.file2}" />
+                    </p:commandButton>
+                    Anexos atualizados em 15/09/2015
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

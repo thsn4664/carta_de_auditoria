@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view contentType="text/html" />
+    <h:head>
+<!--    <head>
+        <meta http-equiv="Content-type" content="text/html" />
+        <link rel="stylesheet" type="text/css" href="/resources/css/exxi.css"/>-->
+        <title>Carta de Auditoria</title>
+        <h:outputStylesheet library="css" name="exxi.css"/>
+    </h:head>       
+    <h:body>
+    <!--</head>
+    <body>-->
+        <!--<h:outputText value="{auxiliarBean.autenticacao(loginBean.usuario)}" />-->
+        <div class="centerDiv">
+            <div>
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 90px;"><p:graphicImage library="img" name="auditoria.png" style="height: 7em;"/></td>
+                        <td><h:outputText value="Carta de Auditoria" style="font-weight: bold;font-size: 3em;"/></td>
+<!--                        <td style="vertical-align: middle; text-align: right;"><p:graphicImage library="img" name="confidencialidade.png" style="height: 5em;"/></td>-->
+                        <td style="vertical-align: middle; text-align: right; padding-right: 5px;"><h:outputText value="#interna" style="font-weight: bold; font-size: 2.5em; font-style: italic;"/></td>
+                    </tr>
+                </table>
+                <table class="headerLine">
+                    <tr>
+                        <td style="vertical-align: middle;">
+                            <p:menubar style="background:transparent;color:#000099;border:0">
+                                <p:menuitem value="Inicial" url="inicial.disem"/>
+                                <p:menuitem value="Pedidos" url="pedidos.disem"/>
+                                <p:menuitem value="Estatística" url="estatistica.disem" rendered="#{pedidosBean.okEstatistica}"/>
+                                <p:menuitem value="Acessos" url="acessos.disem" rendered="#{pedidosBean.okAcesso}"/>
+                            </p:menubar>
+                        </td>
+                        <td style="text-align: right; vertical-align: middle; padding-right: 5px;">
+                            <h:outputText value="Seja bem-vindo, " />
+                            <h:outputText value="#{pedidosBean.usuario.nomeGuerra}" style="font-weight: bold;"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <ui:insert name="corpo"/>
+            </div>
+            <div class="rodapeDiv">
+                <ui:insert name="rodape"/>
+            </div>
+        </div>
+    </h:body>
+    <!--</body>-->
+</html>

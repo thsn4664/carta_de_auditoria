@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=ISO-8859-1" />
+        <link rel="stylesheet" type="text/css" href="/relatorios/css/reportEngine.css"/>
+        <title>Carta de Auditoria - Acesso Negado</title>
+        <style type="text/css">
+            body {
+                /*background: #666 url(//dicom.bb.com.br/imagens/bg/fundo_error.jpg) !important;*/
+                background: #666 !important;
+                font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            }
+            .dark_background {
+                background-color: darkblue;
+                /*background-image: url('http://dicom.bb.com.br/imagens/bg/degrade_azul_vertical.png');*/
+                background-position: left top;
+                background-repeat: repeat-x;
+                color: white;
+            }
+            .light_background_links {
+                background-color: yellow;
+                /*background-image: url('http://dicom.bb.com.br/imagens/bg/faixa_links_amarela.png');*/
+                background-position: left;
+                background-repeat: repeat-x;
+                color: white;
+            }
+            .caixa_erro_externa {
+                max-width: 700px;
+                margin: 150px auto 0 auto;
+                border: 1px solid navy;
+                -moz-border-radius: 8px 8px 8px 8px;
+                border-radius: 8px 8px 8px 8px;
+            }
+            .caixa_erro_interna {
+                width: auto;
+                font-size: 70%;
+                margin: 16px 0;
+            }
+            .caixa_erro_interna p {
+                margin: 0px;
+                font-weight: normal;
+            }
+            .caixa_links {
+                height: 50px;
+                width: auto;
+                font-size: 80%;
+            }
+            .caixa_links ul {
+                margin: 0px;
+                padding: 0px;
+                font-weight: normal;
+            }
+            .caixa_links ul li {
+                display:-moz-inline-stack; /* Hack para o FF2*/
+                display:inline-block;
+                zoom:1; /* Hack para o IE 7*/
+                *display:inline; /* Hack para o IE 7*/
+            }
+            .caixa_links ul li a, .caixa_links ul li a:visited {
+                text-decoration: none;
+                height: 40px;
+                display: block;
+                padding: 6px 16px;
+                width:140px;
+                color: navy;
+            }
+            .caixa_links ul li a:hover {
+                /*background-image: url('http://dicom.bb.com.br/imagens/bg/faixa_links_sel_azul.png');*/
+                background-position: left top;
+                background-repeat: repeat-x;
+                background-color: navy;
+                color: yellow;
+            }
+            .link_titulo {
+                font-weight: bold;
+            }
+            .explain_link {
+                font-size: 70%;
+            }
+            #caixa_externa {
+                padding: 24px;
+            }
+            #titulo_404 {
+                margin: 8px 0;
+                font-size: 4em;
+                color:#FFF
+            }
+            #titulo_404 img {
+                margin: 0;
+                font-size: .2em;
+                vertical-align: middle;
+                text-align: center;
+            }
+            #painel_links {
+                margin: 0 8px;
+                font-size: 70%;
+            }
+            #painel_links a {
+                color: white;
+                margin: 0 16px;
+            }
+            .perdido {
+                float: right;
+                position: relative;
+                top: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="caixa_externa" class="dark_background caixa_erro_externa" style="display:none">
+            <!--<img class="perdido" src="http://dicom.bb.com.br/imagens/sem_acesso.png" alt="Perdido"/>-->
+            <h1 id="titulo_404">
+                <!--<img src="http://dicom.bb.com.br/imagens/logos/logobb.png" alt="Logo BB"/>-->&nbsp;Sem Acesso...</h1>
+            <p style="font-size: 150%" class="link_titulo">Esta aplicação é exclusiva para o Pilar Atacado.</p>
+            <div class="light_background_links caixa_links">
+                <ul>
+                    <li><a href="javascript: history.back();"><span class="link_titulo">Voltar<br/></span><span class="explain_link">Retorna para a página anterior</span></a></li>
+                    <li><a href="https://dicom.bb.com.br/dicom"><span class="link_titulo">Portal Atacado</span><br/><span class="explain_link">Acesso ao Portal Atacado</span></a></li>
+                </ul>
+            </div>
+            <div class="caixa_erro_interna">
+                <p>VIPAT - Vice Presidência Negócios de Atacado</p>
+                <p>Projeto Atacado e-XXI - 2014</p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            document.getElementById("caixa_externa").style.display = 'block';
+        </script>
+    </body>
+</html>

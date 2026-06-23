@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <!--<f:view contentType="text/html; charset=UTF-8" />-->
+
+    <!--<h:head>-->
+    <!--<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>-->
+    <!--</h:head>-->
+
+    <ui:composition template="_layout.xhtml">
+        <ui:define name="corpo" >
+            <h:form>
+                <style>
+                    .ui-panel-content{
+                        padding: 0px !important;
+                    }
+                    .ui-tabs-panel{
+                        padding: 3px !important;
+                    }
+                    .tabs *{
+                        font-size: 10px;
+                    }
+                    .tabEstatFunci th, .tabEstatFunci td{
+                        padding: 4px 2px !important;
+                    }
+                </style>
+                <!--<h:outputText value="{estatisticaBean.autenticacao(loginBean.usuario)}"/>-->
+                <h:outputText value="#{estatisticaBean.atualizar()}"/>
+                <p:panel header="Carta de Auditoria - Estatística" style="text-align: center;padding: 2px;">
+                    <p:tabView styleClass="tabs">
+                        <p:tab title="Total">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <tr>
+                                    <td class="ui-state-default" style="padding: 4px 10px; vertical-align: middle;">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="text-align: left;"><h:outputText value="Resumo Geral" style="font-size: 1.1em;"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right;"><h:outputText value="Período: 24/03/2014 a #{auxiliarBean.dia(estatisticaBean.dtCorrente)}" style="font-weight: normal;"/></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="ui-state-default" style="width: 57px; padding: 4px 10px;"><h:outputText value="Demandas no Workflow"/></td>
+                                    <td class="ui-state-default" style="width: 105px; padding: 4px 10px;"><h:outputText value="Cartas emitidas online"/></td>
+                                    <td class="ui-state-default" style="width: 105px; padding: 4px 10px;"><h:outputText value="Cartas solicitadas e emitidas posteriormente"/></td>
+                                    <td class="ui-state-default" style="width: 105px; padding: 4px 10px;"><h:outputText value="Total de cartas emitidas"/></td>
+                                    <td class="ui-state-default" style="width: 51px; padding: 4px 10px;"><h:outputText value="% atendida pela ferramenta"/></td>                                
+                                </tr>
+                            </table>
+                            <p:dataTable var="e" value="#{estatisticaBean.visaoTotal}" sortBy="vlCartasTotal" sortOrder="descending">
+                                <p:column headerText="Prefixo" style="text-align: right; width: 52px;" sortBy="#{e.cdPrf}">
+                                    <h:outputText value="#{e.cdPrf}"/>
+                                </p:column>
+                                <p:column headerText="Dependência" style="text-align: left;" sortBy="#{e.nmPrf}">
+                                    <h:outputText value="#{e.nmPrf}"/>
+                                </p:column>
+                                <p:column headerText="Qtde" style="text-align: right; width: 57px;" sortBy="#{e.vlDemandasWorkflow}">
+                                    <h:outputText value="#{e.vlDemandasWorkflow}" rendered="#{e.vlDemandasWorkflow gt 0}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Qtde" style="text-align: right; width: 42px;" sortBy="#{e.vlCartasOnline}">
+                                    <h:outputText value="#{e.vlCartasOnline}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="%" style="text-align: right; width: 42px;" sortBy="#{e.percCartasOnline}">
+                                    <h:outputText value="#{e.percCartasOnline}">
+                                        <f:convertNumber pattern="#0.0%"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Qtde" style="text-align: right; width: 42px;" sortBy="#{e.vlCartasOffline}">
+                                    <h:outputText value="#{e.vlCartasOffline}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="%" style="text-align: right; width: 42px;" sortBy="#{e.percCartasOffline}">
+                                    <h:outputText value="#{e.percCartasOffline}">
+                                        <f:convertNumber pattern="#0.0%"/>                                    
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Qtde" style="text-align: right; width: 42px;" sortBy="#{e.vlCartasTotal}">
+                                    <h:outputText value="#{e.vlCartasTotal}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="%" style="text-align: right; width: 42px;" sortBy="#{e.percTotalCartas}">
+                                    <h:outputText value="#{e.percTotalCartas}">
+                                        <f:convertNumber pattern="#0.0%"/>                                    
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="%" style="text-align: right; width: 51px;" sortBy="#{e.percUtilizacao}">
+                                    <h:outputText value="#{e.percUtilizacao}" rendered="#{e.vlDemandasWorkflow gt 0}">
+                                        <f:convertNumber pattern="#,##0.0%"/>                                    
+                                    </h:outputText>
+                                </p:column>
+                                <p:columnGroup type="footer">
+                                    <p:row>
+                                        <p:column colspan="2" footerText="Total" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoTotal.vlDemandasWorkflow,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoTotal.vlCartasOnline,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoTotal.percCartasOnline * 100,1)}%" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoTotal.vlCartasOffline,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoTotal.percCartasOffline * 100,1)}%" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoTotal.vlCartasTotal,0)}" style="text-align: right;"/>                                    
+                                        <p:column/>                                    
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoTotal.percUtilizacao * 100,1)}%" style="text-align: right;"/>                                    
+                                    </p:row>
+                                </p:columnGroup> 
+                            </p:dataTable>
+                        </p:tab>
+                        <p:tab title="Últimos 30 dias">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <tr>
+                                    <td class="ui-state-default" style="padding: 4px 10px; vertical-align: middle;">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="text-align: left;"><h:outputText value="Resumo Últimos 30 dias" style="font-size: 1.1em;"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right;"><h:outputText value="Período: #{auxiliarBean.dia(estatisticaBean.dt30)} a #{auxiliarBean.dia(estatisticaBean.dtCorrente)}" style="font-weight: normal;"/></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="ui-state-default" style="width: 57px; padding: 4px 10px;"><h:outputText value="Demandas no Workflow"/></td>
+                                    <td class="ui-state-default" style="width: 105px; padding: 4px 10px;"><h:outputText value="Cartas emitidas online"/></td>
+                                    <td class="ui-state-default" style="width: 105px; padding: 4px 10px;"><h:outputText value="Cartas solicitadas e emitidas posteriormente"/></td>
+                                    <td class="ui-state-default" style="width: 105px; padding: 4px 10px;"><h:outputText value="Total de cartas emitidas"/></td>
+                                    <td class="ui-state-default" style="width: 51px; padding: 4px 10px;"><h:outputText value="% atendida pela ferramenta"/></td>                                
+                                </tr>
+                            </table>
+                            <p:dataTable var="e" value="#{estatisticaBean.visao30}" sortBy="vlCartasTotal" sortOrder="descending">
+                                <p:column headerText="Prefixo" style="text-align: right; width: 52px;" sortBy="#{e.cdPrf}">
+                                    <h:outputText value="#{e.cdPrf}"/>
+                                </p:column>
+                                <p:column headerText="Dependência" style="text-align: left;" sortBy="#{e.nmPrf}">
+                                    <h:outputText value="#{e.nmPrf}"/>
+                                </p:column>
+                                <p:column headerText="Qtde" style="text-align: right; width: 57px;" sortBy="#{e.vlDemandasWorkflow}">
+                                    <h:outputText value="#{e.vlDemandasWorkflow}" rendered="#{e.vlDemandasWorkflow gt 0}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Qtde" style="text-align: right; width: 42px;" sortBy="#{e.vlCartasOnline}">
+                                    <h:outputText value="#{e.vlCartasOnline}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="%" style="text-align: right; width: 42px;" sortBy="#{e.percCartasOnline}">
+                                    <h:outputText value="#{e.percCartasOnline}">
+                                        <f:convertNumber pattern="#0.0%"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Qtde" style="text-align: right; width: 42px;" sortBy="#{e.vlCartasOffline}">
+                                    <h:outputText value="#{e.vlCartasOffline}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="%" style="text-align: right; width: 42px;" sortBy="#{e.percCartasOffline}">
+                                    <h:outputText value="#{e.percCartasOffline}">
+                                        <f:convertNumber pattern="#0.0%"/>                                    
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Qtde" style="text-align: right; width: 42px;" sortBy="#{e.vlCartasTotal}">
+                                    <h:outputText value="#{e.vlCartasTotal}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="%" style="text-align: right; width: 42px;" sortBy="#{e.percTotalCartas}">
+                                    <h:outputText value="#{e.percTotalCartas}">
+                                        <f:convertNumber pattern="#0.0%"/>                                    
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="%" style="text-align: right; width: 51px;" sortBy="#{e.percUtilizacao}">
+                                    <h:outputText value="#{e.percUtilizacao}" rendered="#{e.vlDemandasWorkflow gt 0}">
+                                        <f:convertNumber pattern="#,##0.0%"/>                                    
+                                    </h:outputText>
+                                </p:column>
+                                <p:columnGroup type="footer">
+                                    <p:row>
+                                        <p:column colspan="2" footerText="Total" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisao30.vlDemandasWorkflow,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisao30.vlCartasOnline,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisao30.percCartasOnline * 100,1)}%" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisao30.vlCartasOffline,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisao30.percCartasOffline * 100,1)}%" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisao30.vlCartasTotal,0)}" style="text-align: right;"/>                                    
+                                        <p:column/>                                    
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisao30.percUtilizacao * 100,1)}%" style="text-align: right;"/>                                    
+                                    </p:row>
+                                </p:columnGroup> 
+                            </p:dataTable>
+                        </p:tab>
+                        <p:tab title="Funcis" rendered="#{pedidosBean.funci.dependencia.cdDep eq 8587}">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <tr>
+                                    <td class="ui-state-default" style="padding: 4px 2px; vertical-align: middle;">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="text-align: left;"><h:outputText value="Resumo Acesso Funcis" style="font-size: 1.1em;"/></td>
+                                                <td style="text-align: right;"><h:outputText value="Período: 24/03/2014 a #{auxiliarBean.dia(estatisticaBean.dtCorrente)}" style="font-weight: normal;"/></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="ui-state-default" style="padding: 4px 2px; width: 403px;"><h:outputText value="Quantidade"/></td>
+                                </tr>
+                            </table>
+                            <p:tooltip/>
+                            <p:dataTable var="f" value="#{estatisticaBean.visaoFunci}" sortBy="qtdeTotal" sortOrder="descending" paginator="true" paginatorPosition="bottom" rows="15" styleClass="tabEstatFunci">
+                                <p:column headerText="Matr" style="text-align: left; width: 45px;" sortBy="#{f.matricula}">
+                                    <h:outputText value="#{f.matricula}"/>
+                                </p:column>
+                                <p:column headerText="Nome" style="text-align: left;" sortBy="#{f.nmFunci}">
+                                    <h:outputText value="#{f.nmFunci}"/>
+                                </p:column>
+                                <p:column headerText="Cargo" style="text-align: left; width: 114px;" sortBy="#{f.nmFuncao}">
+                                    <h:outputText value="#{f.nmFuncao}"/>
+                                </p:column>
+                                <p:column headerText="Prf" style="text-align: right; width: 32px;" sortBy="#{f.cdDep}">
+                                    <h:outputText value="#{f.cdDep}"/>
+                                </p:column>
+                                <p:column style="text-align: right; width: 46px;" sortBy="#{f.qtdeAdd}">
+                                    <f:facet name="header">
+                                        <h:outputText value="ADD" title="Adicionar pedido"/>
+                                    </f:facet>
+                                    <h:outputText value="#{f.qtdeAdd}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column style="text-align: right; width: 46px;" sortBy="#{f.qtdeDel}">
+                                    <f:facet name="header">
+                                        <h:outputText value="DEL" title="Remover pedido"/>
+                                    </f:facet>
+                                    <h:outputText value="#{f.qtdeDel}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column style="text-align: right; width: 46px;" sortBy="#{f.qtdeLook}">
+                                    <f:facet name="header">
+                                        <h:outputText value="LOOK" title="Verificar status"/>
+                                    </f:facet>
+                                    <h:outputText value="#{f.qtdeLook}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column style="text-align: right; width: 46px;" sortBy="#{f.qtdeMake}">
+                                    <f:facet name="header">
+                                        <h:outputText value="MAKE" title="Gerar carta"/>
+                                    </f:facet>
+                                    <h:outputText value="#{f.qtdeMake}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column style="text-align: right; width: 46px;" sortBy="#{f.qtdeErr}">
+                                    <f:facet name="header">
+                                        <h:outputText value="ERR" title="Erro na geração da carta"/>
+                                    </f:facet>
+                                    <h:outputText value="#{f.qtdeErr}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column style="text-align: right; width: 46px;" sortBy="#{f.qtdeNoAccess}">
+                                    <f:facet name="header">
+                                        <h:outputText value="N AC" title="Sem acesso"/>
+                                    </f:facet>
+                                    <h:outputText value="#{f.qtdeNoAccess}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column style="text-align: right; width: 46px;" sortBy="#{f.qtdeForaJurisdicao}">
+                                    <f:facet name="header">
+                                        <h:outputText value="OUT" title="MCI fora da jurisdição"/>
+                                    </f:facet>
+                                    <h:outputText value="#{f.qtdeForaJurisdicao}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column style="text-align: right; width: 46px;" sortBy="#{f.qtdeTotal}">
+                                    <f:facet name="header">
+                                        <h:outputText value="TOT" title="Total"/>
+                                    </f:facet>
+                                    <h:outputText value="#{f.qtdeTotal}">
+                                        <f:convertNumber pattern="#,##0"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:columnGroup type="footer">
+                                    <p:row>
+                                        <p:column colspan="4" footerText="Total" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoFunci.qtdeAdd,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoFunci.qtdeDel,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoFunci.qtdeLook,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoFunci.qtdeMake,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoFunci.qtdeErr,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoFunci.qtdeNoAccess,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoFunci.qtdeForaJurisdicao,0)}" style="text-align: right;"/>
+                                        <p:column footerText="#{auxiliarBean.valor(estatisticaBean.totalVisaoFunci.qtdeTotal,0)}" style="text-align: right;"/>
+                                    </p:row>
+                                </p:columnGroup> 
+                            </p:dataTable>
+                        </p:tab>
+                    </p:tabView>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

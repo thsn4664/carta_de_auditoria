@@ -1,0 +1,32 @@
+172.29.14.62
+user: XXXX  
+pass: XXXX
+
+
+manager do glassfish
+https://dicom3.intranet.bb.com.br:4848/
+User: XXXX
+senha velha: XXXX
+senha nova: XXXX
+
+
+172.29.14.62
+I:\glassfish4\glassfish\domains\domain1\applications
+
+
+
+
+aplicações desabilitadas:
+dirf_intranet - aplicação funciona, mas sem dados
+elosprodutivos - aplicação funciona, mas sem dados
+cartaauditoria - versão antiga
+dashboardprivate - erro de redirecionamento na ágina acesso negado
+testedevelopers4
+earlywarning - erro 500
+painel_fiscalizacao - erro 500
+
+
+
+utilizar netbeans 8.0.2 e glassfish 4.1
+
+

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <!--<f:view contentType="text/html; charset=UTF-8" />-->
+
+    <!--<h:head>-->
+    <!--<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>-->
+    <!--</h:head>-->
+    <ui:composition template="_layout.xhtml">
+        <ui:define name="corpo" >
+            <h:outputText value="#{acessoBean.autenticacao(pedidosBean.funci)} "/>
+            <h:form id="cad">
+                <p:panel header="$40 - CONCESSÃO DE ACESSO A ASSESSORES" >
+                    <br/>
+                    <h:outputText value="Gestor de Acesso: #{acessoBean.gestor.matricula} #{acessoBean.gestor.nmFunci} - #{acessoBean.gestor.funcao.nmFuncao}" style="font-weight:bold"/>
+                    <br/>
+                    <h:outputText value="Concessão de acesso específico para assistentes da Unidade Negocial"/>
+                    <br/>
+                    <br/>
+                    <p:dataTable value="#{acessoBean.assessores}" var="a" style="text-align:left" paginator="true" paginatorPosition="bottom" rows="10" emptyMessage="Não existem funcis aptos para concessão de acesso.">
+                        <p:column headerText="Matrícula">
+                            <h:outputText value="#{a.matricula}" />
+                        </p:column>
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{a.nmFunci}" />
+                        </p:column>
+                        <p:column headerText="Função">
+                            <h:outputText value="#{a.funcao.id} #{a.funcao.nmFuncao}" />
+                        </p:column>
+                        <p:column headerText="Acesso" style="width:30px;text-align:center">
+                            <p:commandLink action="#{acessoBean.autorizacao(a)}" update="@this">
+                                <h:graphicImage library="img" name="ico_negativo.png" title="Não Autorizado" style="height:30px" rendered="#{a.acessoOk eq false}"/>
+                                <h:graphicImage library="img" name="ico_positivo.png" title="Autorizado" style="height:30px" rendered="#{a.acessoOk eq true}"/>
+                            </p:commandLink>
+                        </p:column>
+                        <p:column headerText="Log" style="width:30px;text-align:center">
+                            <p:commandLink action="#{acessoBean.leLog(a.matricula)}" update=":fLog" onclick="dlgLog.show();">
+                                <h:graphicImage library="img" name="cronometro.png" style="height:30px" />
+                            </p:commandLink>
+                        </p:column>
+                    </p:dataTable>
+                    <h:panelGrid columns="2" style="width:100%">
+                        <h:panelGrid columns="5" style="font-weight:bold" >
+                            <h:outputText value="Legenda: " />
+                            <h:graphicImage library="img" name="ico_positivo.png" style="height:30px" />
+                            <h:outputText value="Autorizado" />
+                            <h:graphicImage library="img" name="ico_negativo.png" style="height:30px" />
+                            <h:outputText value="Não Autorizado" />
+                        </h:panelGrid>
+                        <h:outputText value="Orientação: Para conceder/remover acesso, basta clicar no ícone específico da coluna a direíta" style="font-size:10px;font-style:italic;font-weight:bold" />
+                    </h:panelGrid>
+
+                </p:panel>
+            </h:form>
+
+            <p:dialog widgetVar="dlgLog"
+                      header="Log de Concessão de Acesso"
+                      modal="true"
+                      style="background:#ffffcc">
+                <h:form id="fLog">
+                    <br/>
+                    <h:outputText value="Acessos concedidos à:" />
+                    <br/>
+                    <h:outputText value="#{acessoBean.funci.matricula} - #{acessoBean.funci.nmFunci} (#{acessoBean.funci.dependencia.cdDep} / #{acessoBean.funci.funcao.nmFuncao})" style="font-weight:bold"/>
+                    <br/>
+                    <br/>
+                    <p:dataTable value="#{acessoBean.logs}" var="l" paginator="true" paginatorPosition="bottom" rows="15" emptyMessage="Não há registros.">
+                        <p:column headerText="Data">
+                            <h:outputText value="#{l.dt}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="GMT-3" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Agência Autorizada">
+                            <h:outputText value="#{l.cdDep}" />
+                        </p:column>
+                        <p:column headerText="Autorizador">
+                            <h:outputText value="#{l.gestor.matricula} - #{l.gestor.nmFunci}" />
+                        </p:column>
+                    </p:dataTable>
+                    <br/>
+                </h:form>
+            </p:dialog>
+        </ui:define>
+    </ui:composition>
+</html>
